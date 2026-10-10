@@ -1,0 +1,7 @@
+# 策展过程的中间产物（抓取暂存 + 每个标签的对比图），不进仓库
+library/_staging/
+
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

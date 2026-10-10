@@ -1,0 +1,36 @@
+{
+  "name": "dsh-sticker-mode",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sticker mode for the DSH Web GUI: a toggle (in the composer, like jev's) that makes the agent append one context-relevant sticker to the end of every reply. Ships its own same-origin image proxy for img.soutula.com, which enforces a Referer check that a no-referrer <img> cannot satisfy.",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "web-ui",
+    "sticker",
+    "emoji"
+  ]
+}

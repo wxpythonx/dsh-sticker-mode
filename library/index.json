@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "source": "fabiaoqing.com（逐张过目筛选）",
+  "tags": {
+    "鼓掌": [
+      {
+        "slug": "guzhang",
+        "file": "guzhang/1.gif",
+        "title": "啥也别说了，鼓掌吧！",
+        "desc": "熊猫头举双手鼓掌，配文「啥也别说了，鼓掌吧！」，动图",
+        "animated": true
+      },
+      {
+        "slug": "guzhang",
+        "file": "guzhang/2.gif",
+        "title": "鼓掌（小黄鸡）",
+        "desc": "小黄鸡拍手鼓掌，画面干净可爱，动图",
+        "animated": true
+      }
+    ],
+    "无语": [
+      {
+        "slug": "wuyu",
+        "file": "wuyu/1.jpg",
+        "title": "我是一滴无语泉水",
+        "desc": "蓝色水滴小人翻着白眼微笑，配文「我是一滴无语泉水」，表达被无语到",
+        "animated": false
+      },
+      {
+        "slug": "wuyu",
+        "file": "wuyu/2.jpg",
+        "title": "无语到家了",
+        "desc": "Hello Kitty 面无表情，配文「无语妈妈给无语开门 无语到家了」",
+        "animated": false
+      }
+    ],
+    "震惊": [
+      {
+        "slug": "zhenjing",
+        "file": "zhenjing/1.jpg",
+        "title": "啊这",
+        "desc": "游戏卡牌造型，配文「啊这」＋「当别人发出令人震惊的消息，你可以发动此卡」，万用反应图",
+        "animated": false
+      },
+      {
+        "slug": "zhenjing",
+        "file": "zhenjing/2.jpg",
+        "title": "震惊",
+        "desc": "熊猫头瞪圆眼睛，配文「震惊」，最通用的一张",
+        "animated": false
+      }
+    ],
+    "摸鱼": [
+      {
+        "slug": "moyu",
+        "file": "moyu/1.jpg",
+        "title": "今天我们都是摸鱼人",
+        "desc": "许多只手一起摸鱼，配文「今天 我们都是摸鱼人」",
+        "animated": false
+      },
+      {
+        "slug": "moyu",
+        "file": "moyu/2.jpg",
+        "title": "论摸鱼你是比不过我的",
+        "desc": "大笑表情抱着鱼，配文「论摸鱼 你是比不过我的」",
+        "animated": false
+      }
+    ],
+    "谢谢": [
+      {
+        "slug": "xiexie",
+        "file": "xiexie/1.gif",
+        "title": "多谢，谢谢大家",
+        "desc": "猫和老鼠汤姆抱拳致谢，配文「多谢 谢谢 谢谢大家」",
+        "animated": true
+      }
+    ],
+    "加油": [
+      {
+        "slug": "jiayou",
+        "file": "jiayou/1.gif",
+        "title": "加油加油！",
+        "desc": "真人女孩握拳鼓劲，配文「加油 加油！」，语气中性通用，动图",
+        "animated": true
+      }
+    ],
+    "收到": [
+      {
+        "slug": "shoudao",
+        "file": "shoudao/1.gif",
+        "title": "收到收到 over",
+        "desc": "熊猫头手持对讲机，配文「收到收到 over」，动图",
+        "animated": true
+      },
+      {
+        "slug": "shoudao",
+        "file": "shoudao/2.jpg",
+        "title": "收到请回复！Over！",
+        "desc": "熊猫头拿对讲机，配文「日常保持小火苗 收到请回复！Over！」",
+        "animated": false
+      }
+    ],
+    "厉害": [
+      {
+        "slug": "lihai",
+        "file": "lihai/1.jpg",
+        "title": "厉害了我的哥",
+        "desc": "蘑菇头竖大拇指点赞，配文「厉害了我的哥」，表示佩服",
+        "animated": false
+      }
+    ],
+    "告辞": [
+      {
+        "slug": "gaoci",
+        "file": "gaoci/1.jpg",
+        "title": "我家床生病了，告辞",
+        "desc": "黑白人脸伸手做告别状，配文「我家床生病了，我要回去照顾它，告辞」，礼貌撤离话题",
+        "animated": false
+      },
+      {
+        "slug": "gaoci",
+        "file": "gaoci/2.jpg",
+        "title": "套路这么深！告辞",
+        "desc": "同一形象，配文「套路这么深！告辞」",
+        "animated": false
+      }
+    ],
+    "尴尬": [
+      {
+        "slug": "ganga",
+        "file": "ganga/1.gif",
+        "title": "冒汗",
+        "desc": "极简简笔画小人，头上三条汗线，表达尴尬；画面最干净的一张，动图",
+        "animated": true
+      },
+      {
+        "slug": "ganga",
+        "file": "ganga/2.jpg",
+        "title": "绿色熊头冒汗",
+        "desc": "绿色熊头满脸汗珠，下方一排省略号，适合尴尬到说不出话",
+        "animated": false
+      }
+    ]
+  }
+}

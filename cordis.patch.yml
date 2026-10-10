@@ -1,0 +1,10 @@
+# dsh-sticker-mode bundle patch: inserts the dual-face plugin row into the web
+# profile roster.
+#
+# The row is a bare plugin by package name: the node half (exports ".") runs in
+# the host process and registers the sticker routes, the per-step prompt section
+# and the two tools; the `dsh.client` declaration in package.json makes the
+# browser half (exports "./client") load in the web GUI and render the toggle.
+- insert:
+    - id: ui-sticker-mode
+      name: 'dsh-sticker-mode'
