@@ -1,10 +1,31 @@
 # dsh-sticker-mode — 「表情包模式」开关
 
-DSH Web GUI 输入框右侧的一个开关（位置与样式对齐 jev 的绿色开关）。**打开后，AI 每次回复末尾会自动附一张与对话内容相关的表情包。**
+DSH Web GUI 的两级表情包开关：
 
-- 状态真相在 Host：`~/.dsh/sticker-mode.json`（`{"enabled":true|false,...}`），Agent 直接读得到。
-- 图片走 DSH 自己的 Web 服务（同源 `:3080/sticker-mode/img/...`），不占第二个端口、不依赖防火墙。
-- 图片地址前缀由**浏览器上报 `location.origin`** 决定，所以多网卡/局域网访问都不会拼错地址。
+- **总开关**（设置页）：控制输入框里**是否显示**「表情」开关 —— 功能总入口。关闭即整体停用（开关隐藏、不注入指令）。
+- **会话开关**（输入框右侧）：总开关打开后，每个会话用它单独控制**该会话**是否贴图；没有单独打开过的会话不贴。
+
+其它要点：
+
+- 状态真相在 Host：`~/.dsh/sticker-mode.json`（`{"master":true,"sessions":{…}}`），Agent 直接读得到。
+- 图片走 DSH 自己的 Web 服务（同源 `:3080/sticker-mode/lib/...` 本地图库、`:3080/sticker-mode/img/...` 线上代理），不占第二个端口、不依赖防火墙。
+- 图片地址前缀由**浏览器上报 `location.origin`**（按会话记忆）决定，所以多网卡/局域网访问都不会拼错地址。
+
+---
+
+## 两级开关的语义
+
+| | 总开关（设置页） | 会话开关（输入框右侧） |
+|---|---|---|
+| 作用 | 是否在输入框显示「表情」开关；关闭=功能整体停用 | 只控制**当前会话**是否贴图 |
+| 范围 | 全局 | 单个会话，互不影响 |
+| 关闭时 | 开关隐藏、AI 不注入贴图指令、`sticker_pick` 拒绝 | 该会话不贴图，其它会话不受影响 |
+
+规则：
+
+- 总开关关闭时**整体停用**——但已有会话的开关状态保留在文件里，重新打开总开关后原样恢复。
+- 会话没有单独打开过 = 不贴图（不存在"新会话默认值"）。
+- 状态文件由插件按会话维护：200 条上限、30 天过期，不会无限膨胀。
 
 ---
 
@@ -81,17 +102,19 @@ pwsh -File .\install.ps1
 开关状态也可以直接改文件（插件每次判定都现读，不缓存）：
 
 ```powershell
-'{"enabled":true}' | Set-Content "$env:USERPROFILE\.dsh\sticker-mode.json"
+# 总开关（true=输入框显示开关）
+'{"master":true,"sessions":{}}' | Set-Content "$env:USERPROFILE\.dsh\sticker-mode.json"
 ```
 
 ## HTTP 端点
 
 | 路由 | 说明 |
 |---|---|
-| `GET /sticker-mode/state` | 读开关状态 + 当前图片地址前缀 + origin 来源（排障用） |
-| `POST /sticker-mode/state` | `{enabled:boolean}` 写开关（**带同源校验**，防 CSRF） |
-| `POST /sticker-mode/client` | 浏览器上报 `location.origin`（同样要求同源） |
-| `GET /sticker-mode/img/<dir>/<file>` | 图片字节代理（匿名可取的 prefix 路由） |
+| `GET /sticker-mode/state?sessionId=` | 读状态：带 `sessionId` 返回该会话的生效值，不带返回总开关（排障用） |
+| `POST /sticker-mode/state` | `{enabled, sessionId?}`：带 `sessionId` 写该会话开关，不带写**总开关**（带同源校验，防 CSRF） |
+| `POST /sticker-mode/client` | 浏览器上报 `location.origin` + `sessionId`（同样要求同源） |
+| `GET /sticker-mode/lib/<slug>/<file>` | 内置图库（只服务索引里存在的文件） |
+| `GET /sticker-mode/img/<dir>/<file>` | 线上图片代理（匿名可取的 prefix 路由） |
 
 `<dir>` 白名单：`large`/`bmiddle`/`thumb`/`small`/`mw600`/`mw690`；扩展名限 `gif|jpg|jpeg|png|webp`。
 

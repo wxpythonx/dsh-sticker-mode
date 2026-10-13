@@ -1,11 +1,15 @@
 {
   "name": "dsh-sticker-mode",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
-  "description": "Sticker mode for the DSH Web GUI: a toggle (in the composer, like jev's) that makes the agent append one context-relevant sticker to the end of every reply. Ships its own same-origin image proxy for img.soutula.com, which enforces a Referer check that a no-referrer <img> cannot satisfy.",
+  "description": "Sticker mode for the DSH Web GUI: a master switch plus per-session toggles that make the agent append one context-relevant sticker to the end of every reply. Ships a vetted local sticker library and its own same-origin image proxy for img.soutula.com, which enforces a Referer check that a referrer-policy:no-referrer <img> cannot satisfy.",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wxpythonx/dsh-sticker-mode.git"
+  },
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
